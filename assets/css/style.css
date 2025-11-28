@@ -178,3 +178,28 @@ label,
   height: 0.6rem;
   margin-right: 0.25rem;
 }
+
+.password-strength-indicator p {
+  font-weight: bold;
+}
+
+.password-strength-indicator__top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+}
+
+.password-strength-items {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 0.6rem;
+}
+
+.password-strength-items li {
+  height: 1rem;
+  display: flex;
+  gap: 0.125rem;
+  align-items: center;
+  font-size: 0.5rem;
+}
