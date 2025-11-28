@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="box">
@@ -36,7 +37,23 @@
                         <!-- more items -->
                     </ul>
         </div>
-    </div>
+        <div class="password-strength-indicator">
+            <div class="password-strength-indicator__top">
+                <p>Password strength</p>
+                <span class="label-danger" id="strength-label">Weak</span>
+            </div>
 
+            <p><span id="result"></span></p>
+                <div class="progress">
+                    <div id="password-strength"
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 0%; height: 2px;">
+                    </div>
+                </div>
+        </div>
+
+    </div>
+<script src="assets/js/script.js"></script>
 </body>
 </html>

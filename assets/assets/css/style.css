@@ -1,0 +1,180 @@
+:root {
+  --bg: #050a37;
+  --primary: #3971f4;
+  --primary-transparent: #3971f420;
+  --widget-bg: #0e101c;
+  --secondary: #e0efff;
+  --hover: #012a5a;
+  --text: #f6f7f8;
+  --text-dark: #1e1e1e;
+  --danger: #ff4a42;
+  --warning: #ffa02e;
+  --success: #00ff66;
+  --password-strength-bg: #141f17;
+  --progress-bg: #1e3324;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--text);
+  padding: 4rem 4rem;
+  background-position: center;
+  background-image:
+    linear-gradient(
+      var(--primary-transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--primary-transparent) 1px,
+      transparent 1px
+    );
+  box-shadow: inset 0 0 60px #0ff0ff04;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--text-dark);
+}
+
+.box {
+  background: var(--widget-bg);
+  color: var(--text);
+  padding: 0.75rem 1rem;
+  border-radius: 0.625rem;
+  max-width: 14rem;
+  width: 100%;
+  border: 1px solid var(--box-border);
+}
+
+.input_wrapper {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.input_field {
+  border: 0;
+  border-bottom: 2px solid var(--secondary);
+  outline: none;
+  font-size: 0.75rem;
+  color: var(--text);
+  padding: 0.25rem 0;
+  width: 100%;
+  background: transparent;
+  transition: border-color 0.2s, box-shadow 0.3s;
+}
+
+.input_field::placeholder {
+  color: transparent;
+}
+
+.input_label {
+  font-size: 0.75rem;
+  cursor: text;
+  color: var(--secondary);
+  top: 1.25rem;
+}
+
+.input_field:placeholder-shown ~ .input_label {
+  font-size: 0.75rem;
+  cursor: text;
+  left: 0.2625rem;
+  top: 1.25rem;
+}
+
+label,
+.input_field:focus ~ .input_label {
+  position: absolute;
+  top: 0.25rem;
+  display: block;
+  left: 0.2625rem;
+  font-size: 0.625rem;
+  color: var(--secondary);
+  transition: 0.3s;
+}
+
+.input_field:focus {
+  border-bottom: 2px solid var(--primary);
+}
+
+.input_icon {
+  position: absolute;
+  bottom: 0.3rem;
+  right: 0.5rem;
+  height: 1.625rem;
+  width: 1.625rem;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--secondary);
+  transition: color 0.35s ease;
+}
+
+.input_icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.input_field:focus ~ .input_icon {
+  color: var(--primary);
+}
+
+.password-strength {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.5rem;
+  background: var(--password-strength-bg);
+  box-shadow: inset 0 0 10px #0dff0042;
+}
+
+.password-strength_description {
+  font-weight: bold;
+  font-size: 0.5rem;
+}
+
+.password-strength-indicator p {
+  font-weight: bold;
+}
+
+.password-strength-indicator__top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+  font-size: 0.6rem;
+}
+
+.password-strength-items {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 0.125rem;
+  font-size: 0.6rem;
+}
+
+.password-strength-items li {
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.6rem;
+}
+
+.password-strength-items li img {
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-right: 0.25rem;
+}
