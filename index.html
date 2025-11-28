@@ -6,6 +6,37 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="box">
+        <div class="input_wrapper">
+            <input id="password" type="password" placeholder="Enter your password">
+            <label for="password">Password</label>
+            <span class="input_icon">
+                <svg id="eye-icon--shown" class="eye-icon show"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                        viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" 
+                        stroke-linecap="round" stroke-linejoin="round">
+                    <!-- svg icon -->
+                </svg>
+                <svg id="eye-icon--hidden" class="eye-icon hide" style="display: none;"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                    <!-- svg icon -->
+                </svg>
+            </span>
+        </div>
+        <div class="password-strength">
+            <p class="password-strength_description">Your password must include</p>
+            <ul class="password-strength_items">
+                <li class="low-upper-case">
+                    <img src="assets/uncheck.svg" alt="Ticker" title="Ticker" aria-hidden="true">
+            &nbsp;Lowercase &amp; Uppercase
+                    </li>
+                        <!-- more items -->
+                    </ul>
+        </div>
+    </div>
+
 </body>
 </html>
