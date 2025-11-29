@@ -7,53 +7,67 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="box">
-        <div class="input_wrapper">
-            <input id="password" type="password" placeholder="Enter your password">
-            <label for="password">Password</label>
-            <span class="input_icon">
-                <svg id="eye-icon--shown" class="eye-icon show"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
-                        viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" 
-                        stroke-linecap="round" stroke-linejoin="round">
-                    <!-- svg icon -->
-                </svg>
-                <svg id="eye-icon--hidden" class="eye-icon hide" style="display: none;"
+<div class="box">
+    <div class="_input_wrapper">
+        <input id="password" type="password"
+            class="_input_field" placeholder="Your Password">
+
+        <label for="password" class="_input_label">
+            Password
+        </label>
+
+        <span class="_input_icon">
+            <svg id="eye-icon-shown" class="eye-icon show"
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                    <!-- svg icon -->
-                </svg>
-            </span>
-        </div>
-        <div class="password-strength">
-            <p class="password-strength_description">Your password must include</p>
-            <ul class="password-strength_items">
-                <li class="low-upper-case">
-                    <img src="assets/uncheck.svg" alt="Ticker" title="Ticker" aria-hidden="true">
-            &nbsp;Lowercase &amp; Uppercase
-                    </li>
-                        <!-- more items -->
-                    </ul>
-        </div>
-        <div class="password-strength-indicator">
-            <div class="password-strength-indicator__top">
-                <p>Password strength</p>
-                <span class="label-danger" id="strength-label">Weak</span>
-            </div>
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- svg icon -->
+            </svg>
 
-            <p><span id="result"></span></p>
-                <div class="progress">
-                    <div id="password-strength"
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: 0%; height: 2px;">
-                    </div>
-                </div>
-        </div>
-
+            <svg id="eye-icon-hidden" class="eye-icon hide" style="display: none;"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- svg icon -->
+            </svg>
+        </span>
     </div>
-<script src="assets/js/script.js"></script>
+
+    <div class="password-strength">
+        <p class="password-strength_description">Your password must include</p>
+
+        <ul class="password-strength-items">
+            <li class="low-upper-case">
+                <img
+                    src="assets/uncheck.svg" alt="Ticker"
+                    title="Ticker" aria-hidden="true"
+                >
+                &nbsp;Lowercase &amp; Uppercase
+            </li>
+
+            <!-- more items -->
+        </ul>
+    </div>
+
+    <div class="password-strength-indicator">
+        <div class="password-strength-indicator_top">
+            <p>Password strength</p>
+            <span class="label-danger" id="strength-label">Weak</span>
+        </div>
+
+        <p><span id="result"></span></p>
+
+        <div class="progress">
+            <div id="password-strength"
+                class="progress-bar"
+                role="progressbar"
+                style="width: 0%; height: 2px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
