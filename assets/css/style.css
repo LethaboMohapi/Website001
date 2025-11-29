@@ -1,248 +1,193 @@
 :root {
-  --bg: #050a37;
-  --primary: #3971f4;
-  --primary-transparent: #3971f420;
-  --widget-bg: #0e101c;
-  --secondary: #e0efff;
-  --hover: #012a5a;
-  --text: #f6f7f8;
-  --text-dark: #1e1e1e;
-  --danger: #ff4a42;
-  --warning: #ffa02e;
-  --success: #00ff66;
-  --password-strength-bg: #141f17;
-  --progress-bg: #1e3324;
+    --bg: #050a27;
+    --primary: #39f1a9;
+    --primary-transparent: #39ff1a29;
+    --widget-bg: #0e011c;
+    --secondary: #00f0ff;
+    --hover: #0126a4;
+    --text: #f6f7f5;
+    --text-dark: #01ef10;
+    --danger: #ff6e10;
+    --danger-r: #2a2430;
+    --warning: #ffa420;
+    --warning-r: #4f0f0e;
+    --success: #00ff66;
+    --password-strength-bg: #141f17;
+    --progress-bg: #1e3324;
+}
 
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  background: var(--bg);
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-  color: var(--text);
-  padding: 4rem 4rem;
-  background-position: center;
-  background-image:
-    linear-gradient(
-      var(--primary-transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      var(--primary-transparent) 1px,
-      transparent 1px
-    );
-  box-shadow: inset 0 0 60px #0ff0ff04;
-}
-
-::selection {
-  background: var(--primary);
-  color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background: var(--bg);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: var(--text);
 }
 
 .box {
-  background: var(--widget-bg);
-  color: var(--text);
-  padding: 0.75rem 1rem;
-  border-radius: 0.625rem;
-  max-width: 14rem;
-  width: 100%;
-  border: 1px solid var(--box-border);
+    background: var(--widget-bg);
+    color: var(--text);
+    padding: 0.75rem;
+    border-radius: 0.65rem;
+    max-width: 14rem;
+    width: 100%;
+    border: 1px solid var(--box-border);
 }
 
-.input_wrapper {
-  position: relative;
-  padding: 1rem 0;
+._input_wrapper {
+    position: relative;
+    padding: 1rem 0;
 }
 
-.input_field {
-  border: 0;
-  border-bottom: 2px solid var(--secondary);
-  outline: none;
-  font-size: 0.75rem;
-  color: var(--text);
-  padding: 0.25rem 0;
-  width: 100%;
-  background: transparent;
-  transition: border-color 0.2s, box-shadow 0.3s;
+._input_field {
+    border: 0;
+    border-bottom: 2px solid var(--secondary);
+    outline: 0;
+    font-size: 0.75rem;
+    color: var(--text);
+    padding: 0.25rem 0;
+    padding-right: 2rem;
+    width: 100%;
+    background: transparent;
+    transition: border-color 0.25s, box-shadow 0.3s;
 }
 
-.input_field::placeholder {
-  color: transparent;
+._input_field::placeholder {
+    color: transparent;
 }
 
-.input_label {
-  font-size: 0.75rem;
-  cursor: text;
-  color: var(--secondary);
-  top: 1.25rem;
+._input_label {
+    font-size: 0.75rem;
+    color: var(--secondary);
+    top: 1.25rem;
+    position: absolute;
+    left: 0;
+    pointer-events: none;
+    transform-origin: left top;
+    transition: 0.3s;
 }
 
-.input_field:placeholder-shown ~ .input_label {
-  font-size: 0.75rem;
-  cursor: text;
-  left: 0.2625rem;
-  top: 1.25rem;
+._input_field:focus ~ ._input_label,
+._input_field:not(:placeholder-shown) ~ ._input_label {
+    top: 0.25rem;
+    display: block;
+    font-size: 0.625rem;
+    color: var(--secondary);
 }
 
-label,
-.input_field:focus ~ .input_label {
-  position: absolute;
-  top: 0.25rem;
-  display: block;
-  left: 0.2625rem;
-  font-size: 0.625rem;
-  color: var(--secondary);
-  transition: 0.3s;
+._input_field:focus {
+    border-bottom: 2px solid var(--primary);
 }
 
-.input_field:focus {
-  border-bottom: 2px solid var(--primary);
+._input_icon {
+    position: absolute;
+    bottom: 0.3rem;
+    right: 0.25rem;
+    height: 1.65rem;
+    width: 1.65rem;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-.input_icon {
-  position: absolute;
-  bottom: 0.3rem;
-  right: 0.5rem;
-  height: 1.625rem;
-  width: 1.625rem;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  color: var(--secondary);
-  transition: color 0.35s ease;
+._input_icon svg {
+    width: 100%;
+    height: 100%;
 }
 
-.input_icon svg {
-  width: 100%;
-  height: 100%;
+._input_field:focus ~ ._input_icon {
+    color: var(--primary);
 }
 
-.input_field:focus ~ .input_icon {
-  color: var(--primary);
-}
+/* Password Strength widget */
 
 .password-strength {
-  display: flex;
-  gap: 0.5rem;
-  flex-direction: column;
-  margin-top: 0.75rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  font-size: 0.5rem;
-  background: var(--password-strength-bg);
-  box-shadow: inset 0 0 10px #0dff0042;
-}
-
-.password-strength_description {
-  font-weight: bold;
-  font-size: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.6rem;
+    background: var(--password-strength-bg);
+    padding: 0.75rem;
 }
 
 .password-strength-indicator p {
-  font-weight: bold;
+    font-weight: bold;
 }
 
-.password-strength-indicator__top {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.25rem;
-  font-size: 0.6rem;
-}
-
-.password-strength-items {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  gap: 0.125rem;
-  font-size: 0.6rem;
-}
-
-.password-strength-items li {
-  height: 1rem;
-  display: flex;
-  align-items: center;
-  font-size: 0.6rem;
-}
-
-.password-strength-items li img {
-  width: 0.6rem;
-  height: 0.6rem;
-  margin-right: 0.25rem;
-}
-
-.password-strength-indicator p {
-  font-weight: bold;
-}
-
-.password-strength-indicator__top {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.25rem;
+.password-strength-indicator_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
 }
 
 .password-strength-items {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  gap: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    font-size: 0.6rem;
 }
 
 .password-strength-items li {
-  height: 1rem;
-  display: flex;
-  gap: 0.125rem;
-  align-items: center;
-  font-size: 0.5rem;
+    height: 1rem;
+    display: flex;
+    gap: 0.125rem;
+    align-items: center;
+    font-size: 0.5rem;
 }
 
 .password-strength-items li img {
-  width: 0.6rem;
-  height: 0.6rem;
+    width: 0.6rem;
+    height: 0.6rem;
 }
 
 .label-danger {
-  color: var(--danger);
+    color: var(--danger);
 }
 
 .label-warning {
-  color: var(--warning);
+    color: var(--warning);
 }
 
 .label-success {
-  color: var(--success);
+    color: var(--success);
 }
 
+/* Progress Bar */
+
 .progress {
-  width: 100%;
-  height: 0.15rem;
-  background: var(--progress-bg);
-  border-radius: 0.25rem;
-  margin-top: 0.15rem;
-  margin-bottom: 0.15rem;
+    height: 0.15rem;
+    width: 100%;
+    background: var(--progress-bg);
+    border-radius: 0.25rem;
+    margin-top: 0.15rem;
+    margin-bottom: 0.15rem;
 }
+
 .progress-bar {
-  height: 0.1875rem;
-  border-radius: 0.25rem;
-  transition: all 0.3s ease-in-out;
+    height: 0.1875rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease-in-out;
 }
 
 .progress-bar-danger {
-  background: var(--danger);
+    background: var(--danger);
 }
 
 .progress-bar-warning {
-  background: var(--warning);
+    background: var(--warning);
 }
 
 .progress-bar-success {
-  background: var(--success);
+    background: var(--success);
 }
